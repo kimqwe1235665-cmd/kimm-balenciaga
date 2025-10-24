@@ -30,7 +30,7 @@ export function addToCart(productId) {
     if (matchingItem) {
         matchingItem.quantity += 1;
     } else {
-        cart.push({ id: productId, quantity: 1 });
+        cart.push({ productId: productId, quantity: 1 });
     }
     saveToLocalStorage();
 }

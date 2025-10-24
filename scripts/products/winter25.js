@@ -1,6 +1,7 @@
 
 import { products } from '../../data/products.js';
 import { formatMoney } from '../utils/money.js';
+import { cart, addToCart } from '../cart.js';
 
 function renderProducts(type = 'all') {
   const list = type === 'all' ? products : products.filter(p => p.type === type);
@@ -24,12 +25,13 @@ function updateCartQuantity(){
   cart.forEach(item => {
       cartQuantity += item.quantity;
   });
-  document.querySelector('.js-cart-quantity').innerText = cartQuantity;
 }
 
 document.querySelectorAll('.js-add-to-cart').forEach(button => {
   button.addEventListener('click', () => {
     const productId = button.dataset.id;
     console.log(`Add to cart: ${productId}`);
+    addToCart(productId);
+    updateCartQuantity();
   });
 });
