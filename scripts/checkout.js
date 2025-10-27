@@ -2,6 +2,22 @@ import { cart, removeFromCart, addToCart} from "./cart.js";
 import { products } from "../data/products.js";
 import { formatMoney } from "./utils/money.js";
 
+function renderPaymentSummary(){
+    let productPriceCents = 0;
+    cart.forEach(cartItem => {
+        const productId = cartItem.productId;
+        let product;
+        product = products.find(product => product.id === productId);
+        productPriceCents += cartItem.quantity * product.priceCents;
+    });
+    const totalPrice = productPriceCents;
+    const paymentSummaryHTML =`
+    <p class="total-price-label">총 가격:</p>
+    <p class="total-price-value js-total-price">${formatMoney(totalPrice)}</p>
+    `;
+    document.querySelector('.js-payment-summary').innerHTML = paymentSummaryHTML;
+}
+
 function renderCheckoutItems() {
   let checkoutHTML = '';
 
@@ -45,7 +61,9 @@ document.querySelectorAll('.js-delete-button').forEach(button => {
         const productId = button.dataset.productId;
         removeFromCart(productId);
         renderCheckoutItems();
-        
+
+        renderPaymentSummary();
+
     });
 });
 
@@ -54,6 +72,7 @@ document.querySelectorAll('.js-add-button').forEach(button => {
         const productId = button.dataset.productId;
         addToCart(productId);
         renderCheckoutItems();
+        renderPaymentSummary();
         
 
     });
@@ -61,3 +80,4 @@ document.querySelectorAll('.js-add-button').forEach(button => {
 }
 
 renderCheckoutItems();
+renderPaymentSummary()
