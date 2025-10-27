@@ -39,6 +39,12 @@
   gap: 10px;
   flex-wrap: wrap;
 }
+.cart-item-details {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  flex-wrap: wrap;
+}
 
 .cart-item-image {
   width: 150px;
@@ -62,10 +68,15 @@
 }
 
 .cart-item-quantity {
+  display: flex;
+  align-items: left;
+  gap: 20px;
+
   font-size: 16px;
   color: #888;
   flex: 0 0 auto;
 }
+
 
 @media (min-width: 900px) {
   .cart-grid {

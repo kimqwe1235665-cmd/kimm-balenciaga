@@ -19,9 +19,13 @@ cart.forEach(cartItem => {
       <div class="cart-item js-cart-item">
         <img class="cart-item-image js-cart-item-image" src="${matchingProduct.image}">
         <div class="cart-item-details">
-          <p class="cart-item-name js-cart-item-name">${matchingProduct.name}</p>
-          <p class="cart-item-price js-cart-item-price">${formatMoney(matchingProduct.priceCents)}</p>
-          <p class="cart-item-quantity js-cart-item-quantity">수량: - ${cartItem.quantity} +</p>
+          <div class="cart-item-name js-cart-item-name">${matchingProduct.name}</div>
+          <div class="cart-item-price js-cart-item-price">${formatMoney(matchingProduct.priceCents)}</div>
+          <div class="cart-item-quantity js-cart-item-quantity">
+          수량: <div class="delete-from-cart js-delete-from-cart">-</div> 
+          ${cartItem.quantity}
+          <div class="add-to-cart js-add-to-cart">+</div>
+          </div>
         </div>
     </div>
 
