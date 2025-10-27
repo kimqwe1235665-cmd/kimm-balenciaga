@@ -76,7 +76,18 @@
   color: #888;
   flex: 0 0 auto;
 }
-
+.quantity-button{
+  background-color: white;
+  padding: 5px 10px;
+  cursor: pointer;
+  border-radius: 5px;
+  border: none;
+  box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.1);
+}
+.quantity-button:hover {
+  background-color: #f0f0f0;
+  box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.2);
+}
 
 @media (min-width: 900px) {
   .cart-grid {

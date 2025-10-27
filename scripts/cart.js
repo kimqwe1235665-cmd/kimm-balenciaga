@@ -35,9 +35,14 @@ export function addToCart(productId) {
     saveToLocalStorage();
 }
 export function removeFromCart(productId) {
-    const newCart = [];
+    let newCart = [];   
     cart.forEach(cartItem =>{
-        if (cartItem.productId !== productId) {
+        if (cartItem.productId === productId) {
+            if (cartItem.quantity > 1) {
+                cartItem.quantity -= 1;
+                newCart.push(cartItem);
+            }
+        }else{
             newCart.push(cartItem);
         }
     });
