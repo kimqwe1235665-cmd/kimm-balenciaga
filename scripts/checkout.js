@@ -3,17 +3,19 @@ import { products } from "../data/products.js";
 import { formatMoney } from "./utils/money.js";
 
 function renderPaymentSummary(){
+  
     let productPriceCents = 0;
+
     cart.forEach(cartItem => {
         const productId = cartItem.productId;
         let product;
         product = products.find(product => product.id === productId);
         productPriceCents += cartItem.quantity * product.priceCents;
     });
-    const totalPrice = productPriceCents;
+
     const paymentSummaryHTML =`
     <p class="total-price-label">총 가격:</p>
-    <p class="total-price-value js-total-price">${formatMoney(totalPrice)}</p>
+    <p class="total-price-value js-total-price">${formatMoney(productPriceCents)}</p>
     `;
     document.querySelector('.js-payment-summary').innerHTML = paymentSummaryHTML;
 }

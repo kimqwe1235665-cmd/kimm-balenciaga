@@ -4,7 +4,7 @@ import { formatMoney } from '../utils/money.js';
 import { cart, addToCart } from '../cart.js';
 
 function renderProducts(type = 'all') {
-  const list = type === 'all' ? products : products.filter(p => p.type === type);
+  const list = type === 'all' ? products : products.filter(p => p.collection === type);
   const productsHTML = list.map(product => `
     <div class="product-item">
       <img class="product-img" src="${product.image}" alt="${product.name}" loading="lazy">
