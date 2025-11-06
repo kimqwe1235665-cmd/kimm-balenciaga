@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="../styles/saved.css">
 </head>
 <body>
-  <header class="head">
+    <header class="head">
     <div class="headbuttons1">
       <a href="winter25.html"><button class="button1 button-winter25">겨울 25</button></a>
       <a href="bags.html"><button class="button1 button-bags">가방</button></a>
@@ -24,11 +24,20 @@
 
     <div class="headbuttons2">
       <a href="login.html"><button class="button1">로그인</button></a>
-      <img class="img1" src="../imgs/search.png" alt="search">
+      <button class="search-button js-search-button"><img class="img1" src="../imgs/search.png" alt="search"></button>
       <a href="saved.html"><img class="img1" src="../imgs/save.png" alt="save"></a>
       <a href="cart.html"><img class="img1" src="../imgs/6872395.png" alt="cart"></a>
     </div>
   </header>
+    <div class="search-bar js-search-bar">
+    <div class="search-bar-elements">
+      <button class="search-button2"><img class="img1 search-img" src="../imgs/search.png" alt="search"></button>
+      <input type="text" class="search-input js-search-input" placeholder="무엇을 찾고 계신가요?">
+      <button class="search-close js-search-close">×</button>
+
+    </div>
+
+  </div>
   <p class="saved-p">저장한 제품</p>
 
   <div class="saved-page">
@@ -96,5 +105,6 @@
 
   </footer>
   <script type="module" src="../scripts/saved.js"></script>
+  <script src="../scripts/utils/search.js"></script>
 </body>
 </html>
